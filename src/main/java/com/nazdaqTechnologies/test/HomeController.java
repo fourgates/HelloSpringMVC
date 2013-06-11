@@ -6,6 +6,7 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,11 +41,11 @@ public class HomeController {
 		return str;
 	}
 
-	@RequestMapping(value = "/procesJson", method = RequestMethod.GET)
+	@RequestMapping(value = "/cars/{make}/{year}/{model}", method = RequestMethod.GET)
 	@ResponseBody
-	public String handlePost() {
+	public String handlePost(@PathVariable String make,@PathVariable String year,@PathVariable String model) {
 
-		return "procesjson handler";
+		return make + " " + year + " " + model;
 
 	}
 
